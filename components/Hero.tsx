@@ -31,9 +31,9 @@ export function Hero() {
   const { style: hueStyle } = useScrollHue({ start: 0, end: 22, triggerEnd: 0.5 });
   const audioViz = useAudioViz();
   const highlights = [
-    "Three signature sets with 4K multi-cam",
+    "Signature suite configurable for 1–4 voices",
     "Concierge producers, engineers, and glam",
-    "Private client lounge and hospitality concierge",
+    "Private lounge, valet, and hospitality concierge",
   ];
 
   const prefersReducedMotion = useMemo(
@@ -102,7 +102,7 @@ export function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/60"
           >
-            Bangalore • Premium studios • Concierge crew
+            Bangalore • Signature suite • Concierge crew
           </motion.div>
 
           <motion.h1
@@ -111,7 +111,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Bangalore’s flagship podcast suites for brands and creators.
+            Bangalore’s flagship podcast suite for brands and creators.
             <br className="hidden sm:block" />
             <span className="text-primary">{prefersReducedMotion ? currentWord : displayed}</span>
             <span className="inline-block h-6 w-[2px] animate-pulse-soft bg-primary/80 align-middle" />
@@ -123,7 +123,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Two signature studios in the heart of Bengaluru with on-site showrunners, cinematic lighting, and live multi-cam switching. Reserve in under a minute and arrive to a crew that already knows your run-of-show.
+            Our Koramangala stage reshapes for solo hosts through four-person panels with cinematic lighting, live multi-cam switching, and on-site showrunners ready before you step in.
           </motion.p>
 
           <motion.div
@@ -146,12 +146,12 @@ export function Hero() {
             <div className="flex flex-wrap gap-3 text-sm text-white/60">
               <a
                 className="glass-panel inline-flex items-center gap-2 px-4 py-2 hover:text-white"
-                href="#tour"
+                href="#studios"
               >
-                <Play className="h-4 w-4" /> Take Virtual Tour
+                <Play className="h-4 w-4" /> Explore the Suite
               </a>
-              <a className="glass-panel inline-flex items-center gap-2 px-4 py-2 hover:text-white" href="#equipment">
-                <Headphones className="h-4 w-4" /> See Equipment List
+              <a className="glass-panel inline-flex items-center gap-2 px-4 py-2 hover:text-white" href="#experience">
+                <Headphones className="h-4 w-4" /> See the Experience
               </a>
             </div>
           </motion.div>

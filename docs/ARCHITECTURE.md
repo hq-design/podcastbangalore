@@ -29,7 +29,7 @@
   Hero.tsx              # client island (motion, visualizer)
   Services.tsx          # mostly RSC, hover client bits
   Showcase.tsx          # gallery (client), lightbox
-  EquipmentGrid.tsx     # interactive grid (client)
+  StudioSpaces.tsx      # signature suite layouts (client)
   Testimonials.tsx      # carousel (client)
   QuoteCalculator.tsx   # client
   BookingModal.tsx      # client, loads Cal.com embed
@@ -126,4 +126,3 @@
 - Vercel project with Edge Functions for `/api/*`.
 - Preview deployments for PRs; password‑protect previews if needed.
 - Rollback strategy: previous deployment alias.
-

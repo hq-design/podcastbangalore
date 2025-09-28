@@ -48,39 +48,6 @@ export const galleryImages = [
   },
 ];
 
-export const equipmentGrid = [
-  {
-    name: "Broadcast Mics",
-    image: "https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=800&q=80",
-    specs: ["Shure SM7B", "Neumann TLM 103", "Electro-Voice RE20", "RØDE Procaster"],
-  },
-  {
-    name: "Signal Chain",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-    specs: ["Cloudlifter CL-1", "SSL 2+", "Universal Audio Apollo x8"],
-  },
-  {
-    name: "Production Tools",
-    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80",
-    specs: ["RØDECaster Pro II", "Ableton Live 12 Suite", "Pro Tools Ultimate"],
-  },
-  {
-    name: "Cameras",
-    image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=800&q=80",
-    specs: ["Sony FX6", "Sony A7SIII", "Canon R5 C"],
-  },
-  {
-    name: "Lighting",
-    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d4?auto=format&fit=crop&w=800&q=80",
-    specs: ["NanLite Forza 500", "Aputure 300X", "Astera Titan Tubes"],
-  },
-  {
-    name: "Monitoring",
-    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
-    specs: ["Genelec 8330A", "Beyerdynamic DT 770 Pro", "In-Ear IFB"],
-  },
-];
-
 export const testimonials = [
   {
     quote:
@@ -127,14 +94,14 @@ export const socials = [
 
 export const experienceHighlights = [
   {
-    label: "Signature suites",
-    title: "Purpose-built studios with cinematic control",
+    label: "Signature suite",
+    title: "One modular stage tailored to your format",
     description:
-      "Two acoustically tuned stages, motorized lighting, and 4K-ready camera rigs provide the premium canvas your show deserves.",
+      "A single cinematic set that morphs from solo storytelling to four-person panels without sacrificing the aesthetic.",
     points: [
-      "Switchable interview, sofa, and standing sets",
-      "Sound-locked control room with director comms",
-      "Dynamic lighting looks dialed in for your brand",
+      "Swap seating layouts in under five minutes",
+      "Hidden cable runs keep every angle pristine",
+      "Lighting presets for each configuration on cue",
     ],
   },
   {
@@ -163,36 +130,63 @@ export const experienceHighlights = [
 
 export const studioSpaces = [
   {
-    name: "Flagship Stage A",
-    tagline: "Signature interview set • Koramangala",
-    spec: "68 m² soundstage · up to 6 talent",
+    name: "Signature Conversation Suite",
+    tagline: "Koramangala • Immersive ambience",
+    spec: "One stage, configurable for 1–4 talent",
     image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80",
+    description:
+      "A sculpted desk, modular seating, and wraparound lighting deliver a cinematic look that adapts to your guest count without a rebuild.",
     features: [
-      "3x Sony FX6 with auto-tracking",
-      "Color-changeable NanLite and Astera kit",
-      "Broadcast desk + audience riser",
+      "Curated furniture set that repositions effortlessly",
+      "Programmable lighting moods from warm lounge to high-gloss broadcast",
+      "Producer station with teleprompter, confidence monitor, and live switching",
+    ],
+  },
+];
+
+export const setupLayouts = [
+  {
+    id: "solo",
+    title: "Solo Spotlight",
+    seats: "1 talent",
+    description: "Command the room with a hero desk, standing or seated shots, and prompter support for keynote-style episodes.",
+    features: [
+      "Statement host desk with floating lighting",
+      "Teleprompter + confidence monitor in sightline",
+      "Perfect for founder announcements and monologues",
     ],
   },
   {
-    name: "Creator Loft B",
-    tagline: "Casual sofa lounge • Indiranagar",
-    spec: "52 m² loft · up to 4 talent",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+    id: "duo",
+    title: "Fireside Duo",
+    seats: "2 talent",
+    description: "Face-to-face conversational layout with mirrored lighting and matching microphones for balanced framing.",
     features: [
-      "City skyline backdrop with programmable LEDs",
-      "Shure SM7B + in-ear monitoring",
-      "Dedicated podcast producer and stylist room",
+      "Angled armchairs with concealed cabling",
+      "Symmetrical key lighting for effortless edits",
+      "Ideal for host + guest interviews",
     ],
   },
   {
-    name: "Control Suite",
-    tagline: "Mission-critical production hub",
-    spec: "Hybrid control room · 12-seat client gallery",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
+    id: "trio",
+    title: "Roundtable Trio",
+    seats: "3 talent",
+    description: "Curved seating arc keeps everyone on-camera with flattering eyelines and layered depth.",
     features: [
-      "Blackmagic ATEM Constellation switching",
-      "Realtime color, audio mix, and ISO capture",
-      "Secure NDI + SRT links for remote guests",
+      "Modular sofa sections with accent tables",
+      "Dedicated third camera with auto-framing",
+      "Great for panel previews and investor chats",
+    ],
+  },
+  {
+    id: "quartet",
+    title: "Panel Quartet",
+    seats: "4 talent",
+    description: "A balanced panel composition with engineered audio isolation so every contributor shines.",
+    features: [
+      "Tiered seating pods for clear sightlines",
+      "Discrete in-ear monitoring and talkback",
+      "Built for agency roundtables and ensemble casts",
     ],
   },
 ];

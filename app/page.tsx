@@ -12,7 +12,6 @@ import { AmenitiesSection } from "@/components/AmenitiesSection";
 import { Navbar } from "@/components/Navbar";
 import { Showcase } from "@/components/Showcase";
 import { StudioSpaces } from "@/components/StudioSpaces";
-import { VirtualTour } from "@/components/VirtualTour";
 
 const AvailabilitySection = dynamic(() => import("@/components/AvailabilitySection"), {
   loading: () => <SectionPlaceholder title="Live availability" />,
@@ -37,7 +36,6 @@ export default function Page() {
           <StudioSpaces />
           <Showcase />
           <AmenitiesSection />
-          <VirtualTour />
           <Suspense fallback={<SectionPlaceholder title="Availability" />}>
             <AvailabilitySection />
           </Suspense>

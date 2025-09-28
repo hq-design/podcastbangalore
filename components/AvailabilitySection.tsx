@@ -38,7 +38,7 @@ const fetcher = (url: string) => fetch(url).then((res) => {
 });
 
 const statusStyles: Record<AvailabilityStatus, string> = {
-  available: "bg-accent-green/80",
+  available: "bg-emerald-400",
   limited: "bg-amber-400",
   booked: "bg-red-500",
 };

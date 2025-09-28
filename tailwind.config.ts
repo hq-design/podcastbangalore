@@ -12,15 +12,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0a0a0a",
-        primary: "#6366f1",
+        background: "#05030f",
+        primary: "#9b87f5",
         accent: {
-          blue: "#00d4ff",
-          green: "#39ff14",
+          blue: "#4cc9f0",
+          green: "#f6c344",
         },
         text: {
-          primary: "#ffffff",
-          muted: "#a3a3a3",
+          primary: "#f8f7ff",
+          muted: "#b8b2cc",
         },
       },
       fontFamily: {
@@ -29,11 +29,11 @@ const config: Config = {
         mono: ["var(--font-jetbrains)", ...fontFamily.mono],
       },
       backgroundImage: {
-        "hero-gradient": "radial-gradient(circle at 20% 20%, rgba(99,102,241,0.35), transparent 55%), radial-gradient(circle at 80% 30%, rgba(0,212,255,0.25), transparent 60%)",
-        "glass": "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+        "hero-gradient": "radial-gradient(circle at 18% 18%, rgba(155,135,245,0.38), transparent 55%), radial-gradient(circle at 78% 28%, rgba(76,201,240,0.32), transparent 60%)",
+        "glass": "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03))",
       },
       boxShadow: {
-        neon: "0 0 25px rgba(99,102,241,0.45)",
+        neon: "0 0 35px rgba(155,135,245,0.35)",
       },
       keyframes: {
         "pulse-soft": {
