@@ -1,95 +1,99 @@
-export const featuredStories = [
+export const studioHighlights = [
   {
-    title: "The India Tapes",
-    host: "Hosted by Aanya Rao",
-    category: "Culture",
-    tagline: "A season finale recorded at midnight.",
-    image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&w=1200&q=80",
-    previewUrl:
-      "https://cdn.pixabay.com/download/audio/2022/03/15/audio_4cb702b25c.mp3?filename=soul-110141.mp3",
-    episodes: 42,
-    cadence: "Weekly show",
-    testimonial: "“They know how to hold the energy in the room.”",
-    since: "Recorded here since 2023",
+    title: "Signature Studio",
+    description: "Modular conversation stage with movable seating, sculpted lighting, and three camera angles ready to roll.",
+    image:
+      "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    title: "Market Frequency",
-    host: "Hosted by Arjun Mehta",
-    category: "Business",
-    tagline: "Where founders speak before the press release.",
-    image: "https://images.unsplash.com/photo-1521316730702-829a8e30dfd0?auto=format&fit=crop&w=1200&q=80",
-    previewUrl:
-      "https://cdn.pixabay.com/download/audio/2022/10/27/audio_fed1fc7007.mp3?filename=deep-chill-ambient-125573.mp3",
-    episodes: 28,
-    cadence: "Fortnightly",
-    testimonial: "“Our investors ask where we record—this is the answer.”",
-    since: "Recorded here since 2022",
+    title: "Creator Lounge",
+    description: "Private prep space with vanity mirrors, playback screens, and hospitality to keep talent comfortable.",
+    image:
+      "https://images.unsplash.com/photo-1529158062015-cad636e69505?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    title: "Lines & Lyrics",
-    host: "Hosted by Mira Sen",
-    category: "Arts",
-    tagline: "Poets and producers in one take.",
-    image: "https://images.unsplash.com/photo-1515168833906-d2a3b82b302a?auto=format&fit=crop&w=1200&q=80",
-    previewUrl:
-      "https://cdn.pixabay.com/download/audio/2022/08/31/audio_90981461fc.mp3?filename=silence-and-light-11804.mp3",
-    episodes: 19,
-    cadence: "Seasonal",
-    testimonial: "“The room feels like part of the writing team.”",
-    since: "Recorded here since 2021",
+    title: "Control Room",
+    description: "Producers, engineers, and live edit bays work in sync to deliver polished masters before you leave.",
+    image:
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
   },
 ];
 
-export const spaceGallery = [
+export const services = [
   {
-    label: "Conversation",
-    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
-    caption: "Four chairs, one table, and the hush before a breakthrough conversation.",
+    title: "Production Direction",
+    description: "Creative producers guide structure, pacing, and audience-first storytelling.",
   },
   {
-    label: "Performance",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
-    caption: "Turn the room into a listening party with performance lighting and projection.",
+    title: "Cinematic Capture",
+    description: "4K multi-cam rigs, dynamic lighting looks, and on-the-fly switching for broadcast-ready output.",
   },
   {
-    label: "Reflection",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80",
-    caption: "Soft seating, soft light, perfect for one-on-one narratives.",
+    title: "Sound Design",
+    description: "Premium microphones, isolated acoustics, and post mixing deliver the signature Bangalore tone.",
+  },
+  {
+    title: "Hospitality",
+    description: "Pre-session briefings, curated refreshments, and concierge logistics from arrival to wrap.",
   },
 ];
 
-export const pricingTiers = [
-  { label: "Solo", price: "₹2,500/hour", detail: "For solo narrators" },
-  { label: "Interview", price: "₹3,500/hour", detail: "For two voices" },
-  { label: "Panel", price: "₹4,500/hour", detail: "For three to four voices" },
+export const processSteps = [
+  {
+    number: "01",
+    title: "Shape the story",
+    description: "Share the guests, themes, and format. We align on a creative treatment and build the schedule.",
+  },
+  {
+    number: "02",
+    title: "Set the stage",
+    description: "Choose the look: conversation table, lounge seating, or standing presentation. We light and lens it accordingly.",
+  },
+  {
+    number: "03",
+    title: "Capture & deliver",
+    description: "Record with live direction, then receive masters, raw files, and social clips within 24 hours.",
+  },
 ];
 
-export const bookingLayouts = [
+export const testimonials = [
   {
-    id: "solo",
-    title: "Solo Spotlight",
-    description: "A sculpted desk and dramatic key light for monologues and narrations.",
-    capacityLabel: "1 voice",
-    image: "https://images.unsplash.com/photo-1529158062015-cad636e69505?auto=format&fit=crop&w=1200&q=80",
+    quote:
+      "“Every founder I work with asks where we record. The room, the crew, the calm—it feels like an editorial shoot, not a studio hire.”",
+    author: "Anaya Mehta",
+    role: "Producer, The Alt Playbook",
   },
   {
-    id: "fireside",
-    title: "Fireside Duo",
-    description: "Two armchairs, angled cameras, and sympathetic lighting for intimate dialogues.",
-    capacityLabel: "2 voices",
-    image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1200&q=80",
+    quote:
+      "“They understand rhythm. We walked out with a premiere-ready episode and a library of clipped stories for launch week.”",
+    author: "Rahul Verma",
+    role: "Host, The Bengaluru Ledger",
+  },
+];
+
+export const clientLogos = ["Netflux", "Peak Labs", "Oro Studios", "Canvas", "Folio", "Signal", "Orbit", "Summit"];
+
+export const faqItems = [
+  {
+    question: "How early should we book?",
+    answer: "Prime slots fill 3–4 weeks in advance. We hold tentative dates for 48 hours while you confirm guests and travel.",
   },
   {
-    id: "panel",
-    title: "Roundtable Panel",
-    description: "A curved sofa, layered depth, and multiple angles for ensemble conversations.",
-    capacityLabel: "3–4 voices",
-    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+    question: "Can we customise the set?",
+    answer: "Yes. Brand palettes, digital backdrops, vinyl logos, and prop styling are all handled in-house with 72 hours notice.",
+  },
+  {
+    question: "Do you handle remote guests?",
+    answer: "We patch remote contributors via Riverside or Zoom ISO, supplying IFB monitoring and return audio so they feel in room.",
+  },
+  {
+    question: "What deliverables do we receive?",
+    answer: "Multi-cam live cut, camera ISOs, multitrack audio, and colour-balanced masters—all delivered in a secure portal within 24 hours.",
   },
 ];
 
 export const socials = [
   { label: "Instagram", href: "https://www.instagram.com/podcastbangalore" },
-  { label: "Spotify", href: "https://open.spotify.com/show/podcastbangalore" },
   { label: "YouTube", href: "https://www.youtube.com/@podcastbangalore" },
+  { label: "Spotify", href: "https://open.spotify.com/show/podcastbangalore" },
 ];

@@ -3,77 +3,35 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
-  @apply bg-background text-text-primary antialiased;
-}
-
-.high-contrast body {
-  background-color: #fafaf8;
-  color: #0a0a0a;
-}
-
-.high-contrast a {
-  color: #0a0a0a;
-}
-
-.high-contrast .card-panel {
-  background-color: rgba(255, 255, 255, 0.92);
-  border-color: #0a0a0a;
-}
-
-.high-contrast .bg-background {
-  background-color: #fafaf8 !important;
-  color: #0a0a0a !important;
-}
-
-.high-contrast .bg-surface {
-  background-color: rgba(255, 255, 255, 0.85) !important;
-  color: #0a0a0a !important;
+  @apply bg-background text-contrast antialiased font-sans;
 }
 
 a {
-  @apply text-primary transition-colors hover:text-text-primary;
+  @apply text-accent transition-colors hover:text-contrast;
 }
 
-.card-panel {
-  @apply rounded-[32px] border border-border bg-surface/80 backdrop-blur-sm;
+.section-wrapper {
+  @apply mx-auto w-full max-w-6xl px-6 lg:px-12;
 }
 
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
+.tagline {
+  @apply text-xs uppercase tracking-[0.4em] text-muted;
 }
 
-.scrollbar-hidden {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.card {
+  @apply rounded-3xl border border-border bg-elevated shadow-soft;
 }
 
-.focus-ring {
-  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
-}
-
-abbr[title] {
-  text-decoration: none;
-  cursor: help;
-}
-
-.skip-link {
-  position: absolute;
-  top: -80px;
-  left: 16px;
-  z-index: 50;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  background: rgba(201, 169, 97, 0.95);
-  color: #0a0a0a;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  top: 16px;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid theme("colors.accent");
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

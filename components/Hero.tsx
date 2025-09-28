@@ -1,88 +1,52 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
-
-import { useBooking } from "@/components/BookingContext";
-import { prefetchAvailability } from "@/lib/clientAvailability";
+import Link from "next/link";
 
 const HERO_IMAGE =
-  process.env.NEXT_PUBLIC_HERO_POSTER ??
-  "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1920&q=80";
+  "https://images.unsplash.com/photo-1529158062015-cad636e69505?auto=format&fit=crop&w=1920&q=80";
 
 export function Hero() {
-  const { open } = useBooking();
-
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-background text-text-primary"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={HERO_IMAGE}
-          alt="Podcast Bangalore studio"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-hero-overlay" />
-      </div>
-
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 pb-24 pt-40">
-        <motion.span
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-flex w-max items-center gap-2 self-end rounded-full border border-border bg-background/70 px-4 py-2 text-xs uppercase tracking-[0.4em] text-text-muted"
-        >
-          From ₹2,500/hour
-        </motion.span>
-
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl space-y-8"
-        >
-          <p className="text-sm uppercase tracking-[0.4em] text-text-muted">Podcast Bangalore</p>
-          <h1 className="font-display text-4xl leading-tight sm:text-6xl md:text-7xl">
-            Where India&apos;s Stories Take Shape
-          </h1>
-          <p className="text-sm uppercase tracking-[0.4em] text-text-muted">
-            Professional recording studio • <abbr title="Mahatma Gandhi Road" className="no-underline">MG Road Bengaluru</abbr> • 1–4 people
-          </p>
-          <p className="max-w-xl text-lg text-text-muted">
-            A recording sanctuary where filmmakers, founders, and cultural voices craft the conversations that move the country forward.
-          </p>
-          <button
-            type="button"
-            onClick={() => open(undefined, "hero")}
-            onMouseEnter={() => prefetchAvailability()}
-            className="focus-ring inline-flex items-center justify-center rounded-full border border-primary bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-background transition-colors hover:bg-primary/80"
-          >
-            Check Available Slots
-          </button>
-          <Link
-            href="#booking"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-text-muted hover:text-text-primary"
-            onMouseEnter={() => prefetchAvailability()}
-          >
-            First time? See how it works →
-          </Link>
-        </motion.div>
-
-        <div className="flex justify-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-col items-center gap-3 text-xs tracking-[0.4em] text-text-muted"
-          >
-            Scroll
-            <span className="h-10 w-px bg-text-muted/40" />
-          </motion.span>
+    <section id="hero" className="relative overflow-hidden">
+      <div className="section-wrapper relative flex min-h-[80vh] flex-col justify-center gap-12 py-32">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] lg:items-center">
+          <div className="space-y-6">
+            <span className="tagline">Bengaluru • Podcast Studio</span>
+            <h1 className="font-sans text-4xl font-semibold leading-tight text-contrast sm:text-5xl lg:text-[3.5rem]">
+              Where Bengaluru’s conversations take stage.
+            </h1>
+            <p className="max-w-xl text-base text-muted lg:text-lg">
+              Podcast Bangalore is a modern recording house where creators, founders, and storytellers shape ideas with cinema-grade
+              sound, lighting, and hospitality.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="#contact"
+                className="rounded-full bg-contrast px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-background"
+              >
+                Book a studio tour
+              </Link>
+              <Link href="#showreel" className="text-xs uppercase tracking-[0.3em] text-contrast">
+                Watch showreel →
+              </Link>
+            </div>
+            <dl className="grid grid-cols-2 gap-6 pt-6 text-sm text-muted sm:grid-cols-3">
+              <div>
+                <dt className="tagline">Podcasts recorded</dt>
+                <dd className="text-2xl font-semibold text-contrast">500+</dd>
+              </div>
+              <div>
+                <dt className="tagline">Average rating</dt>
+                <dd className="text-2xl font-semibold text-contrast">4.9/5</dd>
+              </div>
+              <div>
+                <dt className="tagline">Turnaround</dt>
+                <dd className="text-2xl font-semibold text-contrast">24 hrs</dd>
+              </div>
+            </dl>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border">
+            <Image src={HERO_IMAGE} alt="Podcast Bangalore studio" fill className="object-cover" priority />
+          </div>
         </div>
       </div>
     </section>
