@@ -37,8 +37,8 @@ const config: Config = {
       },
       keyframes: {
         "pulse-soft": {
-          "0%, 100%": { opacity: 0.9, transform: "scale(1)" },
-          "50%": { opacity: 1, transform: "scale(1.03)" },
+          "0%, 100%": { opacity: "0.9", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.03)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "0% 50%" },
@@ -50,8 +50,8 @@ const config: Config = {
           "100%": { filter: "hue-rotate(20deg)" },
         },
         "fade-up": {
-          "0%": { opacity: 0, transform: "translateY(20px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
