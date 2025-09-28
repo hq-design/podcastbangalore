@@ -124,3 +124,123 @@ export const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/podcaststudio" },
   { label: "TikTok", href: "https://www.tiktok.com/@podcaststudio" },
 ];
+
+export const experienceHighlights = [
+  {
+    label: "Signature suites",
+    title: "Purpose-built studios with cinematic control",
+    description:
+      "Two acoustically tuned stages, motorized lighting, and 4K-ready camera rigs provide the premium canvas your show deserves.",
+    points: [
+      "Switchable interview, sofa, and standing sets",
+      "Sound-locked control room with director comms",
+      "Dynamic lighting looks dialed in for your brand",
+    ],
+  },
+  {
+    label: "Concierge production",
+    title: "Producers that run your recording like broadcast TV",
+    description:
+      "From pre-show briefing to multi-cam switching and live QC, our Bangalore crew keeps the energy high and the workflow frictionless.",
+    points: [
+      "Dedicated showrunner, engineer, and floor manager",
+      "Live graphics, remote guests, and stream uplinks",
+      "Edit-ready assets delivered inside 24 hours",
+    ],
+  },
+  {
+    label: "Guest experience",
+    title: "Five-star hospitality for talent and partners",
+    description:
+      "Private lounge, curated refreshments, and valet coordination ensure every guest feels like the headliner.",
+    points: [
+      "Private prep lounge with glam mirrors",
+      "Artisanal coffee, cold-pressed juices, and snacks",
+      "On-call transport partners across Bengaluru",
+    ],
+  },
+];
+
+export const studioSpaces = [
+  {
+    name: "Flagship Stage A",
+    tagline: "Signature interview set • Koramangala",
+    spec: "68 m² soundstage · up to 6 talent",
+    image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80",
+    features: [
+      "3x Sony FX6 with auto-tracking",
+      "Color-changeable NanLite and Astera kit",
+      "Broadcast desk + audience riser",
+    ],
+  },
+  {
+    name: "Creator Loft B",
+    tagline: "Casual sofa lounge • Indiranagar",
+    spec: "52 m² loft · up to 4 talent",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
+    features: [
+      "City skyline backdrop with programmable LEDs",
+      "Shure SM7B + in-ear monitoring",
+      "Dedicated podcast producer and stylist room",
+    ],
+  },
+  {
+    name: "Control Suite",
+    tagline: "Mission-critical production hub",
+    spec: "Hybrid control room · 12-seat client gallery",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
+    features: [
+      "Blackmagic ATEM Constellation switching",
+      "Realtime color, audio mix, and ISO capture",
+      "Secure NDI + SRT links for remote guests",
+    ],
+  },
+];
+
+export const amenities = [
+  {
+    title: "Production included",
+    items: [
+      "Showrunner-led prep call and run-of-show",
+      "Dedicated engineer for audio + video",
+      "Multi-cam live switching and ISO recording",
+      "Instant playback monitor wall for directors",
+    ],
+  },
+  {
+    title: "Studio environment",
+    items: [
+      "Acoustically isolated stages and control room",
+      "Modular sets with interchangeable branding walls",
+      "Broadcast lighting presets + haze-safe ventilation",
+      "Private talent lounge with glam mirrors",
+    ],
+  },
+  {
+    title: "Guest services",
+    items: [
+      "Valet + chauffeur coordination",
+      "Chef-curated refreshments and F&B concierge",
+      "Makeup and styling partners on standby",
+      "Concierge on WhatsApp for live updates",
+    ],
+  },
+];
+
+export const workflowSteps = [
+  {
+    step: "01",
+    title: "Design your session",
+    description: "Share format, headcount, and creative references. We tailor set looks and crew around your rundown.",
+  },
+  {
+    step: "02",
+    title: "Arrive and relax",
+    description: "Talent is greeted, glam team preps, and producers brief everyone before we roll.",
+  },
+  {
+    step: "03",
+    title: "Capture and deliver",
+    description: "Live switch with redundant recording, then hand-off edit-ready footage, audio, and social clips inside 24 hours.",
+  },
+];

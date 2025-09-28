@@ -8,10 +8,10 @@ import { useBooking } from "@/components/BookingContext";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "Studio", href: "#studio" },
+  { label: "Experience", href: "#experience" },
+  { label: "Studios", href: "#studios" },
+  { label: "Inclusions", href: "#inclusions" },
   { label: "Availability", href: "#availability" },
-  { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -37,7 +37,7 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-sm">
-        <a href="#" className="flex items-center gap-2 font-display text-lg tracking-tight text-white">
+        <a href="#hero" className="flex items-center gap-2 font-display text-lg tracking-tight text-white">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/30 text-primary">
             <Podcast className="h-5 w-5" />
           </span>

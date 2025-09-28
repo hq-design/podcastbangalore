@@ -53,10 +53,10 @@ function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-24 text-white">
       <div className="mb-10 max-w-2xl space-y-4">
-        <span className="text-sm uppercase tracking-widest text-primary">Concierge support</span>
-        <h2 className="font-display text-4xl leading-tight">Need custom crew, set design, or brand experiences?</h2>
+        <span className="text-sm uppercase tracking-[0.4em] text-primary/80">Concierge support</span>
+        <h2 className="font-display text-4xl leading-tight">Let’s craft your next Bangalore recording.</h2>
         <p className="text-lg text-white/70">
-          Tell us about your production goals and our producers will craft a tailored package. Same-day turnarounds available for rush bookings.
+          Share your format, guest list, and creative inspo. Our producers assemble the right studio, crew, and hospitality touches in minutes.
         </p>
       </div>
 
@@ -92,7 +92,7 @@ function ContactSection() {
                 value={form.phone}
                 onChange={(event) => setForm((prev) => ({ ...prev, phone: event.target.value }))}
                 className="rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
-                placeholder="+1 (000) 000-0000"
+                placeholder="+91 00000 00000"
               />
             </label>
             <label className="flex flex-col gap-2 text-sm">
@@ -136,8 +136,8 @@ function ContactSection() {
               <Phone className="h-5 w-5 text-primary" />
               <div>
                 <div className="text-xs uppercase tracking-widest text-white/40">Studio line</div>
-                <a href="tel:+13105550123" className="text-white hover:text-primary">
-                  +1 (310) 555-0123
+                <a href="tel:+919900112233" className="text-white hover:text-primary">
+                  +91 9900 112233
                 </a>
               </div>
             </div>
@@ -145,8 +145,8 @@ function ContactSection() {
               <Mail className="h-5 w-5 text-primary" />
               <div>
                 <div className="text-xs uppercase tracking-widest text-white/40">Email</div>
-                <a href="mailto:bookings@podcaststudio.example" className="text-white hover:text-primary">
-                  bookings@podcaststudio.example
+                <a href="mailto:concierge@ultimatepodcast.in" className="text-white hover:text-primary">
+                  concierge@ultimatepodcast.in
                 </a>
               </div>
             </div>
@@ -154,21 +154,21 @@ function ContactSection() {
               <Clock className="h-5 w-5 text-primary" />
               <div>
                 <div className="text-xs uppercase tracking-widest text-white/40">Hours</div>
-                Mon–Fri · 9a–10p &bull; Sat–Sun · 10a–8p PT
+                Mon–Sun · 9a–11p IST (after-hours by request)
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-primary" />
               <div>
                 <div className="text-xs uppercase tracking-widest text-white/40">Address</div>
-                123 Studio Lane, Los Angeles, CA 90028
+                18 Residency Road, Shanthala Nagar, Bengaluru 560025
               </div>
             </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-white/10">
             <iframe
               title="Studio location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.568869152613!2d-118.3295!3d34.1016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDA2JzA1LjciTiAxMTjCsDE5JzQ2LjIiVw!5e0!3m2!1sen!2sus!4v1706426400000!5m2!1sen!2sus"
+              src="https://maps.google.com/maps?q=Residency%20Road%20Bengaluru&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="280"
               allowFullScreen

@@ -12,7 +12,7 @@ import { stats } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { useBooking } from "@/components/BookingContext";
 
-const words = ["Pro", "Effortless", "Cinematic"];
+const words = ["Cinematic", "Immersive", "Effortless"];
 const HERO_VIDEO =
   process.env.NEXT_PUBLIC_HERO_VIDEO ??
   "https://cdn.coverr.co/videos/coverr-studio-sneak-peek-1700844879874?download=1";
@@ -30,6 +30,11 @@ export function Hero() {
   const parallax = useParallax({ strength: 0.3 });
   const { style: hueStyle } = useScrollHue({ start: 0, end: 22, triggerEnd: 0.5 });
   const audioViz = useAudioViz();
+  const highlights = [
+    "Three signature sets with 4K multi-cam",
+    "Concierge producers, engineers, and glam",
+    "Private client lounge and hospitality concierge",
+  ];
 
   const prefersReducedMotion = useMemo(
     () =>
@@ -97,7 +102,7 @@ export function Hero() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/60"
           >
-            Elite Gear • Cinematic Lighting • On-Site Engineers
+            Bangalore • Premium studios • Concierge crew
           </motion.div>
 
           <motion.h1
@@ -106,16 +111,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Record Your Podcast Like a <span className="text-primary">Pro</span>.
+            Bangalore’s flagship podcast suites for brands and creators.
             <br className="hidden sm:block" />
-            <span className="text-white">
-              World-class studio. Elite gear. On-site support.
-            </span>
-            <br />
-            <span className="inline-flex items-center gap-2 text-primary">
-              <span>{prefersReducedMotion ? currentWord : displayed}</span>
-              <span className="inline-block h-6 w-[2px] animate-pulse-soft bg-primary/80" />
-            </span>
+            <span className="text-primary">{prefersReducedMotion ? currentWord : displayed}</span>
+            <span className="inline-block h-6 w-[2px] animate-pulse-soft bg-primary/80 align-middle" />
           </motion.h1>
 
           <motion.p
@@ -124,7 +123,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            Book a world-class studio with cinematic multi-cam capture, premium audio, and concierge engineering. Availability updates in real time so you can lock your slot in under 60 seconds.
+            Two signature studios in the heart of Bengaluru with on-site showrunners, cinematic lighting, and live multi-cam switching. Reserve in under a minute and arrive to a crew that already knows your run-of-show.
           </motion.p>
 
           <motion.div
@@ -156,6 +155,23 @@ export function Hero() {
               </a>
             </div>
           </motion.div>
+
+          <motion.ul
+            className="grid gap-3 text-sm text-white/70 sm:grid-cols-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-4 py-2 text-white/80"
+              >
+                <span className="inline-flex h-2 w-2 rounded-full bg-primary" />
+                {item}
+              </li>
+            ))}
+          </motion.ul>
         </div>
 
         <motion.div

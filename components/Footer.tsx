@@ -7,14 +7,14 @@ export function Footer() {
         <div className="space-y-3">
           <h3 className="font-display text-2xl">Ultimate Podcast Studio</h3>
           <p className="max-w-sm text-sm text-white/60">
-            Premium podcast production with cinematic visuals, concierge engineering, and frictionless booking in the heart of Los Angeles.
+            Bangalore’s flagship podcast floors with cinematic visuals, broadcast engineers, and hospitality-level care for talent and teams.
           </p>
           <p className="text-xs text-white/30">© {new Date().getFullYear()} Ultimate Podcast Studio. All rights reserved.</p>
         </div>
         <div className="grid gap-6 text-sm md:grid-cols-2">
           <div>
             <h4 className="text-xs uppercase tracking-widest text-white/40">Visit us</h4>
-            <p className="text-white/60">123 Studio Lane<br />Los Angeles, CA 90028</p>
+            <p className="text-white/60">18 Residency Road<br />Bengaluru, Karnataka 560025</p>
           </div>
           <div>
             <h4 className="text-xs uppercase tracking-widest text-white/40">Connect</h4>

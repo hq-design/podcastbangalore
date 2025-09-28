@@ -3,13 +3,16 @@ import { Suspense } from "react";
 
 import { AnalyticsInitializer } from "@/components/AnalyticsInitializer";
 import { BookingProvider } from "@/components/BookingContext";
-import { FloatingCTA } from "@/components/FloatingCTA";
-import { Hero } from "@/components/Hero";
-import { Navbar } from "@/components/Navbar";
-import { Services } from "@/components/Services";
-import { Showcase } from "@/components/Showcase";
 import { BookingModal } from "@/components/BookingModal";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { FloatingCTA } from "@/components/FloatingCTA";
 import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { AmenitiesSection } from "@/components/AmenitiesSection";
+import { Navbar } from "@/components/Navbar";
+import { Showcase } from "@/components/Showcase";
+import { StudioSpaces } from "@/components/StudioSpaces";
+import { VirtualTour } from "@/components/VirtualTour";
 
 const AvailabilitySection = dynamic(() => import("@/components/AvailabilitySection"), {
   loading: () => <SectionPlaceholder title="Live availability" />,
@@ -30,8 +33,11 @@ export default function Page() {
         <Navbar />
         <main>
           <Hero />
-          <Services />
+          <ExperienceSection />
+          <StudioSpaces />
           <Showcase />
+          <AmenitiesSection />
+          <VirtualTour />
           <Suspense fallback={<SectionPlaceholder title="Availability" />}>
             <AvailabilitySection />
           </Suspense>
