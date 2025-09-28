@@ -1,3 +1,5 @@
+"use client";
+
 import { socials } from "@/lib/data";
 
 import HighContrastToggle from "@/components/HighContrastToggle";
