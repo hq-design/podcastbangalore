@@ -51,17 +51,17 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-6 py-24 text-white">
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-24 text-text-primary">
       <div className="mb-10 max-w-2xl space-y-4">
-        <span className="text-sm uppercase tracking-[0.4em] text-primary/80">Concierge support</span>
-        <h2 className="font-display text-4xl leading-tight">Let’s craft your next Bangalore recording.</h2>
-        <p className="text-lg text-white/70">
-          Share your format, guest list, and creative inspo. Our producers assemble the right studio, crew, and hospitality touches in minutes.
+        <span className="text-sm uppercase tracking-[0.4em] text-text-muted">Concierge</span>
+        <h2 className="font-display text-4xl leading-tight">Need a closer conversation?</h2>
+        <p className="text-lg text-text-muted">
+          Share what you&apos;re creating and the team will arrange a walkthrough, hold dates, or craft a bespoke experience.
         </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
-        <form onSubmit={handleSubmit} className="glass-panel space-y-4 p-8">
+        <form onSubmit={handleSubmit} className="card-panel space-y-4 p-8">
           <div className="grid gap-4 md:grid-cols-2">
             <label className="flex flex-col gap-2 text-sm">
               Name
@@ -69,7 +69,7 @@ function ContactSection() {
                 required
                 value={form.name}
                 onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
-                className="rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
+                className="rounded-full border border-border bg-transparent px-5 py-3 text-text-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 placeholder="Your name"
               />
             </label>
@@ -80,7 +80,7 @@ function ContactSection() {
                 type="email"
                 value={form.email}
                 onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
-                className="rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
+                className="rounded-full border border-border bg-transparent px-5 py-3 text-text-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 placeholder="you@email.com"
               />
             </label>
@@ -91,7 +91,7 @@ function ContactSection() {
               <input
                 value={form.phone}
                 onChange={(event) => setForm((prev) => ({ ...prev, phone: event.target.value }))}
-                className="rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
+                className="rounded-full border border-border bg-transparent px-5 py-3 text-text-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 placeholder="+91 00000 00000"
               />
             </label>
@@ -101,7 +101,7 @@ function ContactSection() {
                 type="date"
                 value={form.preferredDate}
                 onChange={(event) => setForm((prev) => ({ ...prev, preferredDate: event.target.value }))}
-                className="rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
+                className="rounded-full border border-border bg-transparent px-5 py-3 text-text-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </label>
           </div>
@@ -112,31 +112,31 @@ function ContactSection() {
               rows={6}
               value={form.message}
               onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
-              className="rounded-2xl border border-white/10 bg-black/60 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary/60"
-              placeholder="Share your show format, crew needs, or custom requests."
+              className="rounded-[32px] border border-border bg-transparent px-5 py-4 text-text-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              placeholder="Share the story you want to tell."
             />
           </label>
           <button
             type="submit"
             disabled={status === "loading"}
             className={cn(
-              "inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-semibold text-white shadow-neon transition",
+              "inline-flex h-12 items-center justify-center rounded-full border border-primary bg-primary px-8 text-sm font-semibold uppercase tracking-[0.3em] text-background transition",
               status === "loading" && "opacity-70"
             )}
           >
             {status === "loading" ? "Submitting…" : "Send request"}
           </button>
-          {status === "success" && <p className="text-sm text-accent-green">We received your request. Expect a reply within 30 minutes.</p>}
-          {status === "error" && <p className="text-sm text-accent-blue">{error ?? "We could not send your message. Try again soon."}</p>}
+          {status === "success" && <p className="text-sm text-primary">We&apos;ll be in touch shortly.</p>}
+          {status === "error" && <p className="text-sm text-text-muted">{error ?? "We could not send your message. Try again soon."}</p>}
         </form>
 
         <div className="space-y-4">
-          <div className="glass-panel space-y-4 p-8 text-sm text-white/70">
+          <div className="card-panel space-y-4 p-8 text-sm text-text-muted">
             <div className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary" />
               <div>
-                <div className="text-xs uppercase tracking-widest text-white/40">Studio line</div>
-                <a href="tel:+919900112233" className="text-white hover:text-primary">
+                <div className="text-xs uppercase tracking-[0.4em] text-text-muted">Studio line</div>
+                <a href="tel:+919900112233" className="text-text-primary hover:text-primary">
                   +91 9900 112233
                 </a>
               </div>
@@ -144,28 +144,28 @@ function ContactSection() {
             <div className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-primary" />
               <div>
-                <div className="text-xs uppercase tracking-widest text-white/40">Email</div>
-                <a href="mailto:concierge@ultimatepodcast.in" className="text-white hover:text-primary">
-                  concierge@ultimatepodcast.in
+                <div className="text-xs uppercase tracking-[0.4em] text-text-muted">Email</div>
+                <a href="mailto:concierge@podcastbangalore.com" className="text-text-primary hover:text-primary">
+                  concierge@podcastbangalore.com
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="h-5 w-5 text-primary" />
               <div>
-                <div className="text-xs uppercase tracking-widest text-white/40">Hours</div>
-                Mon–Sun · 9a–11p IST (after-hours by request)
+                <div className="text-xs uppercase tracking-[0.4em] text-text-muted">Hours</div>
+                Every day · 9a–11p IST · After-hours on request
               </div>
             </div>
             <div className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-primary" />
               <div>
-                <div className="text-xs uppercase tracking-widest text-white/40">Address</div>
+                <div className="text-xs uppercase tracking-[0.4em] text-text-muted">Address</div>
                 18 Residency Road, Shanthala Nagar, Bengaluru 560025
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-3xl border border-white/10">
+          <div className="overflow-hidden rounded-[32px] border border-border">
             <iframe
               title="Studio location"
               src="https://maps.google.com/maps?q=Residency%20Road%20Bengaluru&t=&z=15&ie=UTF8&iwloc=&output=embed"

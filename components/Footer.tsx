@@ -1,35 +1,44 @@
 import { socials } from "@/lib/data";
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/10 bg-black/70 text-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:justify-between">
-        <div className="space-y-3">
-          <h3 className="font-display text-2xl">Ultimate Podcast Studio</h3>
-          <p className="max-w-sm text-sm text-white/60">
-            Bangalore’s flagship podcast floors with cinematic visuals, broadcast engineers, and hospitality-level care for talent and teams.
+    <footer className="border-t border-border bg-background text-text-muted">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 md:flex-row md:items-start md:justify-between">
+        <div className="space-y-4 text-text-primary">
+          <h3 className="font-display text-2xl">Podcast Bangalore</h3>
+          <p className="max-w-sm text-sm text-text-muted">
+            A private recording studio in central Bengaluru for creators shaping the narrative of India.
           </p>
-          <p className="text-xs text-white/30">© {new Date().getFullYear()} Ultimate Podcast Studio. All rights reserved.</p>
         </div>
-        <div className="grid gap-6 text-sm md:grid-cols-2">
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-white/40">Visit us</h4>
-            <p className="text-white/60">18 Residency Road<br />Bengaluru, Karnataka 560025</p>
-          </div>
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-white/40">Connect</h4>
-            <ul className="space-y-2">
-              {socials.map((social) => (
-                <li key={social.label}>
-                  <a className="text-white/70 transition hover:text-primary" href={social.href}>
-                    {social.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="flex flex-col gap-2 text-sm uppercase tracking-[0.3em]">
+          <span>Koramangala · Bengaluru</span>
+          <a href="mailto:concierge@podcastbangalore.com" className="text-text-primary hover:text-primary">
+            concierge@podcastbangalore.com
+          </a>
+          <a href="tel:+919900112233" className="text-text-primary hover:text-primary">
+            +91 9900 112233
+          </a>
         </div>
+        <div className="flex items-center gap-4">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              aria-label={social.label}
+              className="text-text-muted transition-colors hover:text-primary"
+            >
+              <span className="text-sm uppercase tracking-[0.3em]">{social.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="border-t border-border/80 py-6 text-center text-xs uppercase tracking-[0.3em] text-text-muted">
+        © {year} Podcast Bangalore
       </div>
     </footer>
   );
 }
+
+export default Footer;

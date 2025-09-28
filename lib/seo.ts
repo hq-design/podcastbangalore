@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
 
-const SITE_NAME = "Ultimate Podcast Studio";
-const SITE_URL = "https://podcaststudio.example";
-const FALLBACK_PRICE = 175;
+const SITE_NAME = "Podcast Bangalore";
+const SITE_URL = "https://podcastbangalore.vercel.app";
+const FALLBACK_PRICE = 15000;
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Record Your Podcast Like a Pro | Ultimate Podcast Studio",
-    template: "%s | Ultimate Podcast Studio",
+    default: "Where India’s Stories Take Shape | Podcast Bangalore",
+    template: "%s | Podcast Bangalore",
   },
   description:
-    "Book a world-class podcast studio with elite gear, cinematic visuals, and on-site support in under 60 seconds.",
+    "Podcast Bangalore is an invitation-only studio in the heart of Bengaluru where filmmakers, founders, and artists craft the conversations that move India forward.",
   applicationName: SITE_NAME,
   keywords: [
-    "podcast studio rental",
-    "podcast recording studio",
-    "podcast equipment",
-    "studio booking",
-    "audio engineer",
+    "podcast bangalore",
+    "recording studio india",
+    "creative studio bengaluru",
+    "podcast production",
+    "storytelling studio",
   ],
   authors: [{ name: SITE_NAME }],
   openGraph: {
-    title: "Record Your Podcast Like a Pro",
-    description: "Cinematic studio, elite gear, frictionless booking. Experience the ultimate podcast studio.",
+    title: "Where India’s Stories Take Shape",
+    description: "An exclusive, cinematic recording experience for creators working at the highest level.",
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: "en_US",
@@ -33,17 +33,17 @@ export const baseMetadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ultimate Podcast Studio Rental",
+        alt: "Podcast Bangalore studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@podcaststudio",
-    creator: "@podcaststudio",
-    title: "Record Your Podcast Like a Pro",
+    site: "@podcastbangalore",
+    creator: "@podcastbangalore",
+    title: "Where India’s Stories Take Shape",
     description:
-      "Book a world-class studio, elite gear, and on-site support in under 60 seconds.",
+      "An invitation-only studio in Bengaluru for the country’s most compelling storytellers.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -67,11 +67,11 @@ interface BusinessInfoOptions {
 }
 
 export function buildStructuredData({
-  city = "Los Angeles",
-  geo = { lat: 34.0522, lng: -118.2437 },
-  address = "123 Studio Lane, Los Angeles, CA 90028",
-  phone = "+1 (310) 555-0123",
-  email = "bookings@podcaststudio.example",
+  city = "Bengaluru",
+  geo = { lat: 12.9716, lng: 77.5946 },
+  address = "18 Residency Road, Shanthala Nagar, Bengaluru 560025",
+  phone = "+91 9900 112233",
+  email = "concierge@podcastbangalore.com",
 }: BusinessInfoOptions = {}) {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -86,9 +86,9 @@ export function buildStructuredData({
       "@type": "PostalAddress",
       streetAddress: address,
       addressLocality: city,
-      addressRegion: "CA",
-      postalCode: "90028",
-      addressCountry: "US",
+      addressRegion: "KA",
+      postalCode: "560025",
+      addressCountry: "IN",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -106,27 +106,27 @@ export function buildStructuredData({
           "Friday",
         ],
         opens: "09:00",
-        closes: "22:00",
+        closes: "23:00",
       },
       {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Saturday", "Sunday"],
-        opens: "10:00",
-        closes: "20:00",
+        opens: "09:00",
+        closes: "23:00",
       },
     ],
     sameAs: [
-      "https://www.instagram.com/podcaststudio",
-      "https://www.youtube.com/@podcaststudio",
-      "https://www.linkedin.com/company/podcaststudio",
+      "https://www.instagram.com/podcastbangalore",
+      "https://open.spotify.com/show/podcastbangalore",
+      "https://www.youtube.com/@podcastbangalore",
     ],
     makesOffer: {
       "@type": "Offer",
-      priceCurrency: "USD",
+      priceCurrency: "INR",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         price: FALLBACK_PRICE.toString(),
-        priceCurrency: "USD",
+        priceCurrency: "INR",
         unitText: "HOUR",
       },
       availability: "https://schema.org/InStock",
@@ -141,7 +141,7 @@ export function buildStructuredData({
     brand: SITE_NAME,
     offers: {
       "@type": "AggregateOffer",
-      priceCurrency: "USD",
+      priceCurrency: "INR",
       lowPrice: FALLBACK_PRICE,
       highPrice: FALLBACK_PRICE * 8,
       offerCount: 8,

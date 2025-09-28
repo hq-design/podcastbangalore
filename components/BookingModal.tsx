@@ -29,7 +29,7 @@ export function BookingModal() {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 backdrop-blur"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -38,21 +38,21 @@ export function BookingModal() {
           aria-modal="true"
         >
           <motion.div
-            className="relative flex h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-black"
+            className="relative flex h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-[40px] border border-border bg-background"
             initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: prefersReducedMotion ? 0 : 20, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <header className="flex items-center justify-between border-b border-white/10 px-6 py-4 text-white">
+            <header className="flex items-center justify-between border-b border-border px-6 py-4 text-text-primary">
               <div>
-                <h3 className="font-display text-xl">Book Your Studio Session</h3>
-                <p className="text-sm text-white/60">
-                  Finalize your time slot or hand off details to our concierge team.
+                <h3 className="font-display text-xl">Confirm your session</h3>
+                <p className="text-sm text-text-muted">
+                  Finalize the time or forward details to the concierge team.
                 </p>
               </div>
               <button
-                className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-widest text-white/60 hover:text-white"
+                className="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-[0.4em] text-text-muted hover:text-text-primary"
                 onClick={close}
               >
                 Close
@@ -60,13 +60,13 @@ export function BookingModal() {
             </header>
 
             {quoteSummary && (
-              <div className="border-b border-white/10 bg-white/5 px-6 py-3 text-xs uppercase tracking-widest text-white/60">
+              <div className="border-b border-border bg-surface px-6 py-3 text-xs uppercase tracking-[0.3em] text-text-muted">
                 {quoteSummary}
               </div>
             )}
 
             {selectedSlot && (
-              <div className="flex items-center gap-3 border-b border-white/10 bg-white/5 px-6 py-3 text-sm text-white/70">
+              <div className="flex items-center gap-3 border-b border-border bg-surface px-6 py-3 text-sm text-text-muted">
                 <CalendarClock className="h-4 w-4 text-primary" />
                 <span>
                   Preferred slot: {formatTime(selectedSlot.start)} – {formatTime(selectedSlot.end)}
@@ -74,11 +74,11 @@ export function BookingModal() {
               </div>
             )}
 
-            <div className="relative flex-1 bg-black">
+            <div className="relative flex-1 bg-background">
               {!isLoaded && (
-                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 text-sm text-white/60">
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 text-sm text-text-muted">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                  Warming up booking portal…
+                  Opening booking portal…
                 </div>
               )}
               <iframe
@@ -91,15 +91,15 @@ export function BookingModal() {
               />
             </div>
 
-            <div className="grid gap-3 border-t border-white/10 bg-white/5 px-6 py-4 text-sm text-white/60 md:grid-cols-3">
+            <div className="grid gap-3 border-t border-border bg-surface px-6 py-4 text-sm text-text-muted md:grid-cols-3">
               <div>
                 Prefer concierge?
-                <a href="tel:+13105550123" className="flex items-center gap-2 text-white hover:text-primary">
-                  <Phone className="h-4 w-4" /> +1 (310) 555-0123
+                <a href="tel:+919900112233" className="flex items-center gap-2 text-text-primary hover:text-primary">
+                  <Phone className="h-4 w-4" /> +91 9900 112233
                 </a>
               </div>
               <div className="md:col-span-2">
-                Portal not loading? Email <a className="text-white hover:text-primary" href="mailto:bookings@podcaststudio.example">bookings@podcaststudio.example</a> and we will secure your slot manually.
+                Portal not loading? Email <a className="text-text-primary hover:text-primary" href="mailto:concierge@podcastbangalore.com">concierge@podcastbangalore.com</a> and we&apos;ll secure your slot manually.
               </div>
             </div>
           </motion.div>

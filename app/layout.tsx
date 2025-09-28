@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
-import { jetbrains, inter, poppins } from "@/lib/fonts";
+import { inter, playfair } from "@/lib/fonts";
 import { baseMetadata, buildStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = baseMetadata;
@@ -12,9 +12,7 @@ export const metadata: Metadata = baseMetadata;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-theme="dark" className="bg-background">
-      <body
-        className={`${inter.variable} ${poppins.variable} ${jetbrains.variable} bg-background text-text-primary antialiased`}
-      >
+      <body className={`${inter.variable} ${playfair.variable} bg-background text-text-primary antialiased`}>
         <a href="#main" className="skip-link">
           Skip to content
         </a>

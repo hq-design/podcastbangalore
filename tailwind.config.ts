@@ -12,28 +12,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#05030f",
-        primary: "#9b87f5",
-        accent: {
-          blue: "#4cc9f0",
-          green: "#f6c344",
-        },
+        background: "#0a0a0a",
+        surface: "#111111",
+        primary: "#c9a961",
         text: {
-          primary: "#f8f7ff",
-          muted: "#b8b2cc",
+          primary: "#fafaf8",
+          muted: "#bcb7a8",
         },
+        border: "#1f1f1f",
       },
       fontFamily: {
         sans: ["var(--font-inter)", ...fontFamily.sans],
-        display: ["var(--font-poppins)", ...fontFamily.sans],
-        mono: ["var(--font-jetbrains)", ...fontFamily.mono],
+        serif: ["var(--font-playfair)", ...fontFamily.serif],
+        display: ["var(--font-playfair)", ...fontFamily.serif],
       },
       backgroundImage: {
-        "hero-gradient": "radial-gradient(circle at 18% 18%, rgba(155,135,245,0.38), transparent 55%), radial-gradient(circle at 78% 28%, rgba(76,201,240,0.32), transparent 60%)",
-        "glass": "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03))",
-      },
-      boxShadow: {
-        neon: "0 0 35px rgba(155,135,245,0.35)",
+        "hero-overlay": "linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.75) 100%)",
       },
       keyframes: {
         "pulse-soft": {

@@ -1,24 +1,21 @@
 "use client";
 
-import { type RefObject, useEffect, useState } from "react";
-import { Menu, Podcast } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
-import { useMagnetic } from "@/hooks/useMagnetic";
 import { useBooking } from "@/components/BookingContext";
-import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Experience", href: "#experience" },
-  { label: "Studios", href: "#studios" },
-  { label: "Inclusions", href: "#inclusions" },
-  { label: "Availability", href: "#availability" },
-  { label: "Contact", href: "#contact" },
+  { label: "Stories", href: "#stories" },
+  { label: "The Space", href: "#space" },
+  { label: "Creators", href: "#creators" },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { open } = useBooking();
-  const magnetic = useMagnetic({ strength: 0.12 });
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,28 +26,22 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isSolid = isScrolled || isMenuOpen;
+  const backgroundClass = isSolid ? "bg-background/85 backdrop-blur" : "bg-transparent";
+  const borderClass = isSolid ? "border-border/70" : "border-transparent";
+
   return (
     <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-        isScrolled ? "backdrop-blur-xl border-b border-white/10 bg-black/60" : "bg-transparent"
-      )}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${backgroundClass} ${borderClass}`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-sm">
-        <a href="#hero" className="flex items-center gap-2 font-display text-lg tracking-tight text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/30 text-primary">
-            <Podcast className="h-5 w-5" />
-          </span>
-          Ultimate Podcast Studio
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 text-text-primary">
+        <a href="#hero" className="font-display text-xl uppercase tracking-[0.4em]">
+          Podcast Bangalore
         </a>
 
-        <nav className="hidden items-center gap-8 text-text-muted md:flex">
+        <nav className="hidden items-center gap-10 text-xs uppercase tracking-[0.4em] text-text-muted md:flex">
           {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="relative transition-colors hover:text-white focus:outline-none focus-visible:text-white"
-            >
+            <a key={link.label} href={link.href} className="transition-colors hover:text-text-primary">
               {link.label}
             </a>
           ))}
@@ -58,21 +49,59 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <button
-            className="inline-flex h-11 items-center justify-center rounded-full border border-primary/60 bg-primary/20 px-6 font-semibold tracking-tight text-white shadow-neon transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-blue focus-visible:ring-offset-2 focus-visible:ring-offset-black hover:shadow-lg hover:shadow-primary/50"
-            onPointerMove={magnetic.onPointerMove}
-            onPointerLeave={magnetic.onPointerLeave}
+            type="button"
             onClick={() => open(undefined, "nav")}
-            ref={magnetic.ref as RefObject<HTMLButtonElement>}
-            style={magnetic.style}
+            className="hidden rounded-full border border-primary bg-primary px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-background transition hover:bg-primary/80 md:inline-flex"
           >
-            Book Now
+            Book Studio
           </button>
-
-          <button className="md:hidden" aria-label="Open menu">
-            <Menu className="h-6 w-6 text-white" />
+          <button
+            type="button"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.nav
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="border-t border-border/60 bg-background/95 px-6 py-6 text-xs uppercase tracking-[0.4em] md:hidden"
+          >
+            <div className="flex flex-col gap-4 text-text-muted">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="transition-colors hover:text-text-primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  open(undefined, "nav-mobile");
+                }}
+                className="rounded-full border border-primary bg-primary px-6 py-3 text-[0.6rem] font-semibold uppercase tracking-[0.5em] text-background"
+              >
+                Book Studio
+              </button>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
+
+export default Navbar;

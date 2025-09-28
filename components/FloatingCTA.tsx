@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export function FloatingCTA() {
   const { open } = useBooking();
-  const [variant, setVariant] = useState<"book" | "quote">("book");
+  const [highlightBooking, setHighlightBooking] = useState(false);
   const magnetic = useMagnetic({ strength: 0.12 });
   const prefersReducedMotion = useMemo(
     () =>
@@ -21,50 +21,61 @@ export function FloatingCTA() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const sections: Array<{ id: string; variant: "book" | "quote" }> = [
-      { id: "availability", variant: "book" },
-      { id: "pricing", variant: "quote" },
-    ];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const matched = sections.find((section) => section.id === entry.target.id);
-            if (matched) {
-              setVariant(matched.variant);
+
+    let cancelled = false;
+    let observer: IntersectionObserver | null = null;
+
+    const attachObserver = () => {
+      if (cancelled) return;
+      const bookingSection = document.getElementById("booking");
+      if (!bookingSection) {
+        requestAnimationFrame(attachObserver);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target.id === "booking") {
+              setHighlightBooking(entry.isIntersecting);
             }
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
+          });
+        },
+        { threshold: 0.4 }
+      );
 
-    sections.forEach((section) => {
-      const node = document.getElementById(section.id);
-      if (node) observer.observe(node);
-    });
+      observer.observe(bookingSection);
+    };
 
-    return () => observer.disconnect();
+    attachObserver();
+
+    return () => {
+      cancelled = true;
+      observer?.disconnect();
+    };
   }, []);
 
   const handleClick = () => {
-    if (variant === "book") {
-      open(undefined, "fab");
-      trackEvent(ANALYTICS_EVENTS.FAB_CTA, { variant: "book" });
-    } else {
-      document.getElementById("pricing")?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
-      trackEvent(ANALYTICS_EVENTS.FAB_CTA, { variant: "quote" });
+    if (highlightBooking) {
+      document
+        .getElementById("booking")
+        ?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+      trackEvent(ANALYTICS_EVENTS.FAB_CTA, { variant: "scroll" });
+      return;
     }
+
+    open(undefined, "fab");
+    trackEvent(ANALYTICS_EVENTS.FAB_CTA, { variant: "book" });
   };
 
   return (
     <button
       type="button"
       className={cn(
-        "fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-neon transition",
-        variant === "book"
-          ? "bg-primary hover:bg-primary/90"
-          : "bg-accent-blue/80 hover:bg-accent-blue"
+        "fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] transition",
+        highlightBooking
+          ? "bg-border/80 text-text-muted hover:bg-border hover:text-text-primary"
+          : "bg-primary text-background hover:bg-primary/80"
       )}
       onClick={handleClick}
       ref={magnetic.ref as RefObject<HTMLButtonElement>}
@@ -73,7 +84,7 @@ export function FloatingCTA() {
       style={magnetic.style}
     >
       <Sparkles className="h-4 w-4" />
-      {variant === "book" ? "Book Now" : "Get Instant Quote"}
+      {highlightBooking ? "Scroll to Booking" : "Book the Studio"}
     </button>
   );
 }

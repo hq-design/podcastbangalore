@@ -1,4 +1,4 @@
-import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -6,16 +6,9 @@ export const inter = Inter({
   display: "swap",
 });
 
-export const poppins = Poppins({
+export const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-});
-
-export const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-jetbrains",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
   display: "swap",
 });
