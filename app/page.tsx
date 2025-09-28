@@ -7,10 +7,13 @@ import { BookingModal } from "@/components/BookingModal";
 import { BookingSection } from "@/components/BookingSection";
 import { CreatorShowcase } from "@/components/CreatorShowcase";
 import { CreatorsStatement } from "@/components/CreatorsStatement";
+import { FAQDrawer } from "@/components/FAQDrawer";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { MobileNavBar } from "@/components/MobileNavBar";
 import { Navbar } from "@/components/Navbar";
+import { PowerUserMenu } from "@/components/PowerUserMenu";
 import { SpaceSection } from "@/components/SpaceSection";
 
 const ContactSection = dynamic(() => import("@/components/ContactSection"), {
@@ -37,6 +40,9 @@ export default function Page() {
         </main>
         <Footer />
         <FloatingCTA />
+        <FAQDrawer />
+        <PowerUserMenu />
+        <MobileNavBar />
         <BookingModal />
       </div>
     </BookingProvider>

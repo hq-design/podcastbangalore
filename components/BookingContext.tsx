@@ -8,6 +8,12 @@ interface BookingSlot {
   end?: string;
 }
 
+interface GuestDetails {
+  name: string;
+  email: string;
+  phone?: string;
+}
+
 interface BookingContextValue {
   isOpen: boolean;
   open: (slot?: BookingSlot, source?: string) => void;
@@ -16,6 +22,11 @@ interface BookingContextValue {
   quoteSummary: string | null;
   lastSource: string | null;
   selectedSlot: BookingSlot | null;
+  setSelectedSlot: (slot: BookingSlot | null) => void;
+  selectedLayout: string | null;
+  setSelectedLayout: (layout: string | null) => void;
+  guestDetails: GuestDetails | null;
+  setGuestDetails: (details: GuestDetails | null) => void;
 }
 
 const BookingContext = createContext<BookingContextValue | null>(null);
@@ -25,13 +36,17 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [quoteSummary, setQuoteSummary] = useState<string | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<BookingSlot | null>(null);
   const [lastSource, setLastSource] = useState<string | null>(null);
+  const [selectedLayout, setSelectedLayout] = useState<string | null>(null);
+  const [guestDetails, setGuestDetails] = useState<GuestDetails | null>(null);
 
   const value = useMemo<BookingContextValue>(
     () => ({
       isOpen,
       open: (slot, source) => {
-        if (slot) setSelectedSlot(slot);
+        setSelectedSlot(slot ?? null);
         if (source) setLastSource(source);
+        setSelectedLayout(null);
+        setGuestDetails(null);
         setIsOpen(true);
       },
       close: () => {
@@ -41,8 +56,13 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
       quoteSummary,
       lastSource,
       selectedSlot,
+      setSelectedSlot,
+      selectedLayout,
+      setSelectedLayout,
+      guestDetails,
+      setGuestDetails,
     }),
-    [isOpen, quoteSummary, selectedSlot, lastSource]
+    [isOpen, quoteSummary, selectedSlot, lastSource, selectedLayout, guestDetails]
   );
 
   return <BookingContext.Provider value={value}>{children}</BookingContext.Provider>;

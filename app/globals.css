@@ -10,6 +10,30 @@ body {
   @apply bg-background text-text-primary antialiased;
 }
 
+.high-contrast body {
+  background-color: #fafaf8;
+  color: #0a0a0a;
+}
+
+.high-contrast a {
+  color: #0a0a0a;
+}
+
+.high-contrast .card-panel {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-color: #0a0a0a;
+}
+
+.high-contrast .bg-background {
+  background-color: #fafaf8 !important;
+  color: #0a0a0a !important;
+}
+
+.high-contrast .bg-surface {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  color: #0a0a0a !important;
+}
+
 a {
   @apply text-primary transition-colors hover:text-text-primary;
 }
@@ -29,6 +53,11 @@ a {
 
 .focus-ring {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
+
+abbr[title] {
+  text-decoration: none;
+  cursor: help;
 }
 
 .skip-link {

@@ -2,13 +2,20 @@
 
 import { useState } from "react";
 
+import { useEffect } from "react";
+
 import { useBooking } from "@/components/BookingContext";
+import { prefetchAvailability } from "@/lib/clientAvailability";
 
 export function BookingSection() {
   const { open, setQuoteSummary } = useBooking();
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [notes, setNotes] = useState("");
+
+  useEffect(() => {
+    prefetchAvailability();
+  }, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

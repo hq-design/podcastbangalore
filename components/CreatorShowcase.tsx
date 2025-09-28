@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import { Pause, Play } from "lucide-react";
 
 import { featuredStories } from "@/lib/data";
+import { ANALYTICS_EVENTS, trackEvent } from "@/lib/analytics";
 
 export function CreatorShowcase() {
   const prefersReducedMotion = useMemo(
@@ -43,29 +46,72 @@ interface StoryCardProps {
 
 function StoryCard({ story, prefersReducedMotion }: StoryCardProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handleEnter = () => {
-    if (prefersReducedMotion) return;
-    void audioRef.current?.play().catch(() => {
-      /* noop */
-    });
-  };
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
-  const handleLeave = () => {
+    const handleTimeUpdate = () => {
+      if (audio.currentTime >= 30) {
+        audio.pause();
+        audio.currentTime = 0;
+        setIsPlaying(false);
+      }
+    };
+
+    const handleEnded = () => {
+      setIsPlaying(false);
+    };
+
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("ended", handleEnded);
+    return () => {
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
+  const stopPreview = () => {
     const audio = audioRef.current;
     if (audio) {
       audio.pause();
       audio.currentTime = 0;
     }
+    setIsPlaying(false);
+  };
+
+  const handlePlayToggle = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      stopPreview();
+      return;
+    }
+    audio.currentTime = 0;
+    void audio
+      .play()
+      .then(() => {
+        if (prefersReducedMotion) {
+          audio.pause();
+          audio.currentTime = 0;
+          return;
+        }
+        setIsPlaying(true);
+        trackEvent(ANALYTICS_EVENTS.AUDIO_SAMPLE_PLAYED, {
+          title: story.title,
+        });
+      })
+      .catch(() => {
+        setIsPlaying(false);
+      });
   };
 
   return (
     <article
       className="group relative overflow-hidden rounded-[32px] border border-border bg-surface"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-      onFocus={handleEnter}
-      onBlur={handleLeave}
+      onMouseLeave={stopPreview}
+      onBlur={stopPreview}
       tabIndex={0}
     >
       <div className="relative aspect-[4/5] overflow-hidden">
@@ -84,9 +130,28 @@ function StoryCard({ story, prefersReducedMotion }: StoryCardProps) {
         </div>
       </div>
       <div className="flex items-center justify-between px-6 py-4 text-sm text-text-muted">
-        <span>{story.tagline}</span>
-        <span className="text-xs uppercase tracking-[0.3em] text-primary">Play preview</span>
+        <div className="space-y-1">
+          <span>{story.tagline}</span>
+          <div className="text-xs uppercase tracking-[0.3em] text-text-muted/70">
+            {story.episodes} episodes • {story.cadence}
+          </div>
+        </div>
+        <div className="relative">
+          <button
+            type="button"
+            onClick={handlePlayToggle}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/80 text-text-primary transition hover:border-primary hover:text-primary"
+            aria-pressed={isPlaying}
+            aria-label={isPlaying ? `Pause preview for ${story.title}` : `Play preview for ${story.title}`}
+          >
+            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
+          <span className="pointer-events-none absolute left-1/2 top-[120%] -translate-x-1/2 rounded-full border border-border bg-background/80 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-text-muted opacity-0 transition group-hover:opacity-100">
+            {story.since}
+          </span>
+        </div>
       </div>
+      <div className="px-6 pb-6 text-sm italic text-text-muted">{story.testimonial}</div>
       <audio ref={audioRef} src={story.previewUrl} preload="metadata" />
     </article>
   );
