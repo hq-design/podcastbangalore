@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import StudiosSection from "@/components/StudiosSection";
+import CapacitySection from "@/components/CapacitySection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ServicesSection from "@/components/ServicesSection";
 import ShowreelSection from "@/components/ShowreelSection";
@@ -17,6 +18,7 @@ export default function Page() {
       <main className="pt-20">
         <Hero />
         <StudiosSection />
+        <CapacitySection />
         <ExperienceSection />
         <ServicesSection />
         <ShowreelSection />

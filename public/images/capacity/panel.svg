@@ -1,0 +1,11 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="32" fill="#17191F"/>
+  <rect x="96" y="120" width="1088" height="480" rx="28" fill="#242731"/>
+  <rect x="360" y="280" width="560" height="160" rx="40" fill="#FF6435" fill-opacity="0.22" stroke="#FF6435" stroke-width="4"/>
+  <circle cx="420" cy="360" r="28" fill="#F7F5F0"/>
+  <circle cx="560" cy="360" r="28" fill="#F7F5F0"/>
+  <circle cx="720" cy="360" r="28" fill="#F7F5F0"/>
+  <circle cx="860" cy="360" r="28" fill="#F7F5F0"/>
+  <text x="640" y="160" text-anchor="middle" fill="#F7F5F0" font-family="'Inter',sans-serif" font-size="42" font-weight="600">Panel Stage</text>
+  <text x="640" y="600" text-anchor="middle" fill="#A8ADB9" font-family="'Inter',sans-serif" font-size="26">Swap this placeholder with your 4-person layout photo</text>
+</svg>

@@ -38,6 +38,50 @@ export const services = [
   },
 ];
 
+export const capacityOptions = [
+  {
+    count: "1",
+    label: "person",
+    title: "Solo Spotlight",
+    description: "Capture founder updates or narrative intros with intimate lighting and direct-to-camera framing.",
+    image: {
+      src: "/images/capacity/solo.svg",
+      alt: "Single host setup ready for recording",
+    },
+  },
+  {
+    count: "2",
+    label: "people",
+    title: "Duo Dialogue",
+    description: "Face-to-face seating keeps energy focused while matched camera angles balance both voices.",
+    image: {
+      src: "/images/capacity/duo.svg",
+      alt: "Two-person podcast layout with matched angles",
+    },
+  },
+  {
+    count: "3",
+    label: "people",
+    title: "Roundtable Trio",
+    description: "Triangular table spacing preserves eyelines and audio separation for fast-cut conversations.",
+    image: {
+      src: "/images/capacity/trio.svg",
+      alt: "Three-person roundtable arrangement",
+    },
+  },
+  {
+    count: "4",
+    label: "people",
+    title: "Panel Stage",
+    description: "A wraparound layout with individual mics and IFB monitoring supports moderated panels and live guests.",
+    image: {
+      src: "/images/capacity/panel.svg",
+      alt: "Four-person panel stage with host and guests",
+    },
+  },
+];
+
+
 export const processSteps = [
   {
     number: "01",

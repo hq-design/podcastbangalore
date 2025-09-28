@@ -1,0 +1,8 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="32" fill="#17191F"/>
+  <rect x="96" y="120" width="1088" height="480" rx="28" fill="#242731"/>
+  <circle cx="640" cy="360" r="96" fill="#FF6435" fill-opacity="0.35" stroke="#FF6435" stroke-width="6"/>
+  <circle cx="640" cy="360" r="36" fill="#F7F5F0"/>
+  <text x="640" y="160" text-anchor="middle" fill="#F7F5F0" font-family="'Inter',sans-serif" font-size="42" font-weight="600">Solo Spotlight</text>
+  <text x="640" y="600" text-anchor="middle" fill="#A8ADB9" font-family="'Inter',sans-serif" font-size="26">Swap this placeholder with your 1-person setup photo</text>
+</svg>
