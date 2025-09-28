@@ -32,7 +32,11 @@
   BookingSection.tsx    # inline concierge form (client)
   BookingModal.tsx      # Cal.com embed (client)
   FloatingCTA.tsx       # floating call-to-action (client)
+  FAQDrawer.tsx         # slide-out FAQ assistant (client)
+  MobileNavBar.tsx      # mobile bottom navigation (client)
+  PowerUserMenu.tsx     # hidden pro shortcuts (client)
   Footer.tsx            # minimal footer (RSC)
+  HighContrastToggle.tsx# accessibility toggle (client)
 
 /hooks
   useMagnetic.ts
@@ -66,8 +70,8 @@
 - Analytics: `analytics.track(event, payload)` from islands; server logs minimal.
 
 ## 5) Concierge Booking Flow
-- Inline form captures preferred date, time, and contact; forwards context into Cal.com modal.
-- Booking modal remains Cal.com embed, prefilling contextual notes.
+- Inline form captures preferred date, time, and contact; forwards context into the multi-step booking modal.
+- Booking modal: step 1 calendar (availability peek), step 2 layout selector, step 3 guest details, then Cal.com embed with prefilled notes.
 - Quote API retained for future use but not surfaced in UI; remove when new pricing product lands.
 
 ## 6) Performance Strategy
