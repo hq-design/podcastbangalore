@@ -24,7 +24,9 @@ export default function Page() {
   return (
     <BookingProvider>
       <div className="relative min-h-screen bg-black text-white">
-        <AnalyticsInitializer />
+        <Suspense fallback={null}>
+          <AnalyticsInitializer />
+        </Suspense>
         <Navbar />
         <main>
           <Hero />
